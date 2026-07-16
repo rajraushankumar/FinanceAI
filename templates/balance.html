@@ -1,25 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Current Balance</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Balance CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/balance.css') }}">
+
 </head>
 
 <body>
 
-    <h1>💰 Current Balance</h1>
+    <div class="balance-container">
 
-    <h2>Total Income : ₹ {{ income }}</h2>
+        <!-- Header -->
 
-    <h2>Total Expense : ₹ {{ expense }}</h2>
+        <div class="balance-header">
 
-    <hr>
+            <div>
 
-    <h1>Available Balance : ₹ {{ balance }}</h1>
+                <h1>
 
-    <br>
+                    <i class="fa-solid fa-wallet"></i>
 
-    <a href="/dashboard">⬅ Back to Dashboard</a>
+                    Current Balance
+
+                </h1>
+
+                <p>Check your complete financial summary</p>
+
+            </div>
+
+            <a href="/dashboard" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+
+        <!-- Balance Cards -->
+
+        <div class="balance-cards">
+
+
+            <!-- Total Income -->
+
+            <div class="balance-card income-card">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                </div>
+
+                <h3>Total Income</h3>
+
+                <h2>₹ {{ income }}</h2>
+
+            </div>
+
+
+            <!-- Total Expense -->
+
+            <div class="balance-card expense-card">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+
+                </div>
+
+                <h3>Total Expense</h3>
+
+                <h2>₹ {{ expense }}</h2>
+
+            </div>
+
+
+            <!-- Available Balance -->
+
+            <div class="balance-card available-card">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                </div>
+
+                <h3>Available Balance</h3>
+
+                <h2>₹ {{ balance }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 

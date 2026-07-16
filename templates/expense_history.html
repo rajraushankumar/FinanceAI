@@ -1,39 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Expense History</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Expense History CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/expense_history.css') }}">
+
 </head>
 
 <body>
 
-    <h1>💸 Expense History</h1>
+    <div class="history-container">
 
-    <table border="1" cellpadding="10">
+        <!-- Header -->
 
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Amount</th>
-            <th>Category</th>
-        </tr>
+        <div class="history-header">
 
-        {% for expense in expenses %}
+            <div>
 
-        <tr>
-            <td>{{ expense[0] }}</td>
-            <td>{{ expense[1] }}</td>
-            <td>{{ expense[2] }}</td>
-            <td>{{ expense[3] }}</td>
-        </tr>
+                <h1>
 
-        {% endfor %}
+                    <i class="fa-solid fa-receipt"></i>
 
-    </table>
+                    Expense History
 
-    <br>
+                </h1>
 
-    <a href="/dashboard">⬅ Back to Dashboard</a>
+                <p>View all your expense transactions</p>
+
+            </div>
+
+            <a href="/dashboard" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+
+        <!-- Expense Table -->
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Username</th>
+
+                        <th>Amount</th>
+
+                        <th>Category</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for expense in expenses %}
+
+                    <tr>
+
+                        <td>{{ expense[0] }}</td>
+
+                        <td>
+
+                            <i class="fa-solid fa-user"></i>
+
+                            {{ expense[1] }}
+
+                        </td>
+
+                        <td class="amount">
+
+                            ₹{{ expense[2] }}
+
+                        </td>
+
+                        <td>
+
+                            <span class="category-badge">
+
+                                {{ expense[3] }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
 
 </body>
 

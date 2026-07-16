@@ -1,9 +1,15 @@
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
     font-family: 'Poppins', sans-serif;
+
 }
+
 
 body {
 
@@ -15,6 +21,7 @@ body {
 
 }
 
+
 .history-container {
 
     max-width: 1200px;
@@ -22,6 +29,7 @@ body {
     margin: auto;
 
 }
+
 
 .history-header {
 
@@ -35,6 +43,7 @@ body {
 
 }
 
+
 .history-header h1 {
 
     color: #1e293b;
@@ -43,13 +52,15 @@ body {
 
 }
 
+
 .history-header h1 i {
 
-    color: #2563eb;
+    color: #ef4444;
 
     margin-right: 10px;
 
 }
+
 
 .history-header p {
 
@@ -58,6 +69,7 @@ body {
     margin-top: 8px;
 
 }
+
 
 .back-btn {
 
@@ -75,11 +87,13 @@ body {
 
 }
 
+
 .back-btn:hover {
 
     background: #1d4ed8;
 
 }
+
 
 .table-card {
 
@@ -95,6 +109,7 @@ body {
 
 }
 
+
 table {
 
     width: 100%;
@@ -103,9 +118,10 @@ table {
 
 }
 
+
 th {
 
-    background: #2563eb;
+    background: #ef4444;
 
     color: white;
 
@@ -114,6 +130,7 @@ th {
     text-align: left;
 
 }
+
 
 td {
 
@@ -125,25 +142,28 @@ td {
 
 }
 
+
 tr:hover {
 
-    background: #f8fafc;
+    background: #fef2f2;
 
 }
 
+
 .amount {
 
-    color: #16a34a;
+    color: #dc2626;
 
     font-weight: 600;
 
 }
 
-.source-badge {
 
-    background: #dbeafe;
+.category-badge {
 
-    color: #1d4ed8;
+    background: #fee2e2;
+
+    color: #dc2626;
 
     padding: 6px 12px;
 
@@ -152,6 +172,7 @@ tr:hover {
     font-size: 14px;
 
 }
+
 
 td i {
 

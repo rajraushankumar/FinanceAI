@@ -1,39 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Income History</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- History CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/history.css') }}">
+
 </head>
 
 <body>
 
-    <h1>📜 Income History</h1>
+    <div class="history-container">
 
-    <table border="1" cellpadding="10">
+        <!-- Header -->
 
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Amount</th>
-            <th>Source</th>
-        </tr>
+        <div class="history-header">
 
-        {% for income in incomes %}
+            <div>
 
-        <tr>
-            <td>{{ income[0] }}</td>
-            <td>{{ income[1] }}</td>
-            <td>{{ income[2] }}</td>
-            <td>{{ income[3] }}</td>
-        </tr>
+                <h1>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Income History
+                </h1>
 
-        {% endfor %}
+                <p>View all your income transactions</p>
 
-    </table>
+            </div>
 
-    <br>
+            <a href="/dashboard" class="back-btn">
 
-    <a href="/dashboard">⬅ Back to Dashboard</a>
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+
+        <!-- Income Table -->
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Username</th>
+
+                        <th>Amount</th>
+
+                        <th>Source</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for income in incomes %}
+
+                    <tr>
+
+                        <td>{{ income[0] }}</td>
+
+                        <td>
+
+                            <i class="fa-solid fa-user"></i>
+
+                            {{ income[1] }}
+
+                        </td>
+
+                        <td class="amount">
+
+                            ₹{{ income[2] }}
+
+                        </td>
+
+                        <td>
+
+                            <span class="source-badge">
+
+                                {{ income[3] }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
 
 </body>
 

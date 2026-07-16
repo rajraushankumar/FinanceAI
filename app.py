@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, session
-
+from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = "my_secret_key"
 
@@ -25,15 +25,16 @@ def login():
         cursor = connection.cursor()
 
         cursor.execute(
-            "SELECT * FROM users WHERE email=? AND password=?",
-            (email, password)
+            "SELECT * FROM users WHERE email=?",
+            (email,)
         )
 
         user = cursor.fetchone()
 
         connection.close()
 
-        if user:
+        if user and check_password_hash(user[3], password):
+
             print("User =", user)
             session["username"] = user[1]
             print("✅ Login Successful")
@@ -298,6 +299,8 @@ def register():
 
         if password != confirm_password:
             return "Passwords do not match!"
+        
+        hashed_password = generate_password_hash(password)
 
         connection = sqlite3.connect("finance.db")
         cursor = connection.cursor()
@@ -320,7 +323,7 @@ def register():
             INSERT INTO users(name, email, password)
             VALUES (?, ?, ?)
             """,
-            (name, email, password)
+            (name, email, hashed_password)
         )
 
         connection.commit()
