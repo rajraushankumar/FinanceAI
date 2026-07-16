@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/login.css') }}">
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <div class="login-icon">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <h1>FinanceAI</h1>
+
+            <p>Login to your account</p>
+
+           <form method="POST" autocomplete="off" id="loginForm">
+
+    <!-- Email -->
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-envelope"></i>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            autocomplete="off"
+            required>
+
+    </div>
+
+    <!-- Password -->
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+            autocomplete="off"
+            required>
+
+        <i class="fa-solid fa-eye" id="togglePassword"></i>
+
+    </div>
+
+    <button type="submit" id="loginBtn">
+
+       <i class="fa-solid fa-right-to-bracket"></i>
+
+        <span>Login</span>
+
+    </button>
+    
+
+</form>
+
+<p class="register-text">
+
+    Don't have an account?
+
+    <a href="/register">Create Account</a>
+
+</p>
+
+    </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+
+</html>

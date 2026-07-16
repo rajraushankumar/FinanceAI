@@ -1,0 +1,277 @@
+/* ================= GOOGLE FONT ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ================= BODY ================= */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+}
+
+/* ================= LOGIN CONTAINER ================= */
+
+.login-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+/* ================= LOGIN CARD ================= */
+
+.login-card{
+
+    background:white;
+
+    width:100%;
+
+    max-width:420px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+    text-align:center;
+
+    animation:popup .7s ease;
+
+}
+
+/* ================= LOGIN ICON ================= */
+
+.login-icon{
+
+    width:80px;
+
+    height:80px;
+
+    background:#2563eb;
+
+    color:white;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:35px;
+
+}
+
+/* ================= HEADING ================= */
+
+.login-card h1{
+
+    font-size:32px;
+
+    color:#1e293b;
+
+}
+
+.login-card p{
+
+    color:#64748b;
+
+    margin:10px 0 30px;
+
+}
+
+/* ================= INPUT BOX ================= */
+
+.input-box{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#f1f5f9;
+
+    border-radius:12px;
+
+    padding:14px 18px;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+
+}
+
+.input-box:hover{
+
+    background:#e2e8f0;
+
+}
+
+.input-box:focus-within{
+
+    background:white;
+
+    border:2px solid #2563eb;
+
+}
+
+.input-box i{
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    margin-right:12px;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:16px;
+
+}
+
+/* ================= BUTTON ================= */
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+
+}
+
+/* ================= ANIMATION ================= */
+
+.login-card{
+
+    animation:popup .7s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+#togglePassword{
+
+    cursor:pointer;
+
+    color:#64748b;
+
+    margin-left:10px;
+
+    transition:.3s;
+
+}
+
+#togglePassword:hover{
+
+    color:#2563eb;
+
+}
+
+/* ================= REGISTER ================= */
+
+.register-text{
+
+    margin-top:25px;
+
+    font-size:15px;
+
+    color:#64748b;
+
+}
+
+.register-text a{
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.register-text a:hover{
+
+    text-decoration:underline;
+
+}

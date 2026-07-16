@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Income History</title>
+</head>
+
+<body>
+
+    <h1>📜 Income History</h1>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Amount</th>
+            <th>Source</th>
+        </tr>
+
+        {% for income in incomes %}
+
+        <tr>
+            <td>{{ income[0] }}</td>
+            <td>{{ income[1] }}</td>
+            <td>{{ income[2] }}</td>
+            <td>{{ income[3] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/dashboard">⬅ Back to Dashboard</a>
+
+</body>
+
+</html>

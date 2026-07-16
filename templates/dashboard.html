@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+   <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ================= NAVBAR ================= -->
+
+        <nav class="navbar">
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <span>FinanceAI</span>
+            </div>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-user"></i>
+
+                <span>{{ username }}</span>
+
+            </div>
+
+        </nav>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <h1>Welcome Back, {{ username }} 👋</h1>
+
+            <p>
+                Manage your income, expenses and financial reports
+                from one beautiful dashboard.
+            </p>
+
+        </section>
+
+       <!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <!-- Income Card -->
+    <div class="stat-card income">
+
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+        <h3>Total Income</h3>
+
+        <h2>₹{{ income }}</h2>
+
+    </div>
+
+    <!-- Expense Card -->
+    <div class="stat-card expense">
+
+        <i class="fa-solid fa-money-bill-wave"></i>
+
+        <h3>Total Expense</h3>
+
+        <h2>₹{{ expense }}</h2>
+
+    </div>
+
+    <!-- Balance Card -->
+    <div class="stat-card balance">
+
+        <i class="fa-solid fa-wallet"></i>
+
+        <h3>Available Balance</h3>
+
+        <h2>₹{{ balance }}</h2>
+
+    </div>
+
+</section>
+        <!-- ================= QUICK ACTION ================= -->
+
+        <section class="quick-actions">
+
+            <h2>Quick Actions</h2>
+
+            <div class="action-grid">
+
+                <a href="/income" class="action-card">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    <h3>Add Income</h3>
+
+                </a>
+
+                <a href="/expense" class="action-card">
+
+                    <i class="fa-solid fa-minus"></i>
+
+                    <h3>Add Expense</h3>
+
+                </a>
+
+                <a href="/balance" class="action-card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h3>View Balance</h3>
+
+                </a>
+
+                <a href="/history" class="action-card">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <h3>Income History</h3>
+
+                </a>
+
+                <a href="/expense_history" class="action-card">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                    <h3>Expense History</h3>
+
+                </a>
+
+                <a href="/report" class="action-card">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <h3>Monthly Report</h3>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ================= AI CARD ================= -->
+
+        <section class="ai-card">
+
+            <div class="ai-icon">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div>
+
+                <h2>AI Insight</h2>
+
+                <p>
+                    Your savings look healthy this month.
+                    Keep tracking your daily expenses for
+                    better financial planning.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= LOGOUT ================= -->
+
+        <div class="logout">
+
+            <a href="/logout">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

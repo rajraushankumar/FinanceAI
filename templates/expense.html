@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense History</title>
+</head>
+
+<body>
+
+<h1>💸 Expense History</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>ID</th>
+<th>Username</th>
+<th>Amount</th>
+<th>Category</th>
+
+</tr>
+
+{% for expense in expenses %}
+
+<tr>
+
+<td>{{ expense[0] }}</td>
+<td>{{ expense[1] }}</td>
+<td>{{ expense[2] }}</td>
+<td>{{ expense[3] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+⬅ Back to Dashboard
+</a>
+
+</body>
+
+</html>

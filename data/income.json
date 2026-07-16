@@ -1,0 +1,26 @@
+[
+    {
+        "email": "rajj@gmail.com",
+        "amount": 50000.0,
+        "category": "Freelance",
+        "date": "14-07-2026"
+    },
+    {
+        "email": "rajj@gmail.com",
+        "amount": 10000.0,
+        "category": "intership",
+        "date": "14-07-2026"
+    },
+    {
+        "email": "rajj@gmail.com",
+        "amount": 100000.0,
+        "category": "Salary",
+        "date": "14-07-2026"
+    },
+    {
+        "email": "rajj@gmail.com",
+        "amount": 20000.0,
+        "category": "Salary",
+        "date": "14-07-2026"
+    }
+]
