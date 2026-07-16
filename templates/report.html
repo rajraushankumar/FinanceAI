@@ -1,37 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Monthly Report</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Report CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/report.css') }}">
+
 </head>
 
 <body>
 
-<h1>📊 Monthly Report</h1>
+    <div class="report-container">
 
-<table border="1" cellpadding="10">
+        <!-- Header -->
 
-<tr>
-<th>Total Income</th>
-<th>Total Expense</th>
-<th>Balance</th>
-</tr>
+        <div class="report-header">
 
-<tr>
+            <div>
 
-<td>₹ {{ income }}</td>
-<td>₹ {{ expense }}</td>
-<td>₹ {{ balance }}</td>
+                <h1>
 
-</tr>
+                    <i class="fa-solid fa-chart-column"></i>
 
-</table>
+                    Monthly Report
 
-<br>
+                </h1>
 
-<a href="/dashboard">
-⬅ Back to Dashboard
-</a>
+                <p>Analyze your complete financial performance</p>
+
+            </div>
+
+            <a href="/dashboard" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+
+        <!-- Report Cards -->
+
+        <div class="report-cards">
+
+
+            <!-- Income -->
+
+            <div class="report-card income-card">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                <h3>Total Income</h3>
+
+                <h2>₹ {{ income }}</h2>
+
+            </div>
+
+
+            <!-- Expense -->
+
+            <div class="report-card expense-card">
+
+                <i class="fa-solid fa-arrow-trend-down"></i>
+
+                <h3>Total Expense</h3>
+
+                <h2>₹ {{ expense }}</h2>
+
+            </div>
+
+
+            <!-- Balance -->
+
+            <div class="report-card balance-card">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <h3>Available Balance</h3>
+
+                <h2>₹ {{ balance }}</h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- Summary -->
+
+        <div class="summary-box">
+
+            <h2>
+
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                Financial Summary
+
+            </h2>
+
+            <p>
+
+                Your total income is
+
+                <strong>₹ {{ income }}</strong>
+
+                and your total expense is
+
+                <strong>₹ {{ expense }}</strong>.
+
+                Your current available balance is
+
+                <strong>₹ {{ balance }}</strong>.
+
+            </p>
+
+        </div>
+
+    </div>
 
 </body>
 

@@ -1,0 +1,275 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #f1f5f9;
+
+    padding: 40px;
+
+}
+
+
+.report-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+.report-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+.report-header h1 {
+
+    font-size: 36px;
+
+    color: #1e293b;
+
+}
+
+
+.report-header h1 i {
+
+    color: #2563eb;
+
+    margin-right: 10px;
+
+}
+
+
+.report-header p {
+
+    color: #64748b;
+
+    margin-top: 8px;
+
+}
+
+
+.back-btn {
+
+    text-decoration: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+}
+
+
+.back-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+.report-cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.report-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+
+}
+
+
+.report-card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+
+.report-card i {
+
+    font-size: 38px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.report-card h3 {
+
+    color: #64748b;
+
+    margin-bottom: 10px;
+
+}
+
+
+.report-card h2 {
+
+    color: #1e293b;
+
+    font-size: 32px;
+
+}
+
+
+.income-card {
+
+    border-left: 7px solid #16a34a;
+
+}
+
+
+.income-card i {
+
+    color: #16a34a;
+
+}
+
+
+.expense-card {
+
+    border-left: 7px solid #dc2626;
+
+}
+
+
+.expense-card i {
+
+    color: #dc2626;
+
+}
+
+
+.balance-card {
+
+    border-left: 7px solid #2563eb;
+
+}
+
+
+.balance-card i {
+
+    color: #2563eb;
+
+}
+
+
+.summary-box {
+
+    margin-top: 40px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.summary-box h2 {
+
+    color: #1e293b;
+
+    margin-bottom: 15px;
+
+}
+
+
+.summary-box h2 i {
+
+    color: #2563eb;
+
+    margin-right: 10px;
+
+}
+
+
+.summary-box p {
+
+    color: #64748b;
+
+    line-height: 1.8;
+
+}
+
+
+.summary-box strong {
+
+    color: #1e293b;
+
+}
+
+
+@media (max-width: 768px) {
+
+    body {
+
+        padding: 20px;
+
+    }
+
+
+    .report-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+    }
+
+
+    .report-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
