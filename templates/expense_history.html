@@ -58,7 +58,6 @@
 
         </div>
 
-
         <!-- Expense Table -->
 
         <div class="table-card">
@@ -84,7 +83,6 @@
                     </tr>
 
                 </thead>
-
 
                 <tbody>
 
@@ -118,15 +116,28 @@
 
                         </td>
 
-                    
-
                         <td>
 
-                            <a href="/delete_expense/{{ expense[0] }}"
-                            class="delete-btn"
-                            onclick="return confirm('Are you sure you want to delete this expense?')">
+                            <!-- Edit -->
 
-                                🗑 Delete
+                            <a href="/edit_expense/{{ expense[0] }}"
+                               class="edit-btn">
+
+                                <i class="fa-solid fa-pen"></i>
+
+                                Edit
+
+                            </a>
+
+                            <!-- Delete -->
+
+                            <a href="/delete_expense/{{ expense[0] }}"
+                               class="delete-btn"
+                               onclick="return confirm('Are you sure you want to delete this expense?')">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                                Delete
 
                             </a>
 

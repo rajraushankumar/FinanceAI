@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Income</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/edit_income.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+
+        <i class="fa-solid fa-pen-to-square"></i>
+
+        Edit Income
+
+    </h1>
+
+    <form method="POST">
+
+        <div class="input-box">
+
+            <label>Amount</label>
+
+            <input
+                type="number"
+                name="amount"
+                value="{{ income[2] }}"
+                required>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Source</label>
+
+            <input
+                type="text"
+                name="source"
+                value="{{ income[3] }}"
+                required>
+
+        </div>
+
+        <div class="input-box">
+
+            <label>Date</label>
+
+            <input
+                type="date"
+                name="date"
+                value="{{ income[4] }}"
+                required>
+
+        </div>
+
+        <button type="submit">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+
+            Update Income
+
+        </button>
+
+    </form>
+
+    <a href="/history" class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

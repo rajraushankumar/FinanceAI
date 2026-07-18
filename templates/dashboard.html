@@ -32,37 +32,53 @@
 
 <div class="dashboard">
 
+    
     <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
 
-    <nav class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-wallet"></i>
+        <span>FinanceAI</span>
+    </div>
 
-        <div class="logo">
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+    </div>
 
-            <i class="fa-solid fa-wallet"></i>
+    <div class="profile">
 
-            <span>FinanceAI</span>
+        <form action="/profile" method="POST" enctype="multipart/form-data">
 
-        </div>
+            <input
+                type="file"
+                name="profile_photo"
+                id="profile_photo"
+                hidden
+                onchange="this.form.submit()">
 
-       <div class="profile">
+            <label for="profile_photo">
 
-            {% if profile_photo %}
+                {% if profile_photo %}
 
-                <img src="{{ url_for('static', filename='images/' + profile_photo) }}"
-                    class="profile-photo">
+                    <img src="{{ url_for('static', filename='images/' + profile_photo) }}"
+                        class="profile-photo">
 
-            {% else %}
+                {% else %}
 
-                <i class="fa-solid fa-user"></i>
+                    <img src="{{ url_for('static', filename='images/default.png') }}"
+                        class="profile-photo">
 
-            {% endif %}
+                {% endif %}
 
-            <span>{{ username }}</span>
+            </label>
 
-        </div>
-        
-    </nav>
+        </form>
 
+        <span>{{ username }}</span>
+
+    </div>
+
+</nav>
     <!-- ================= HERO ================= -->
 
     <section class="hero">
@@ -168,6 +184,14 @@
                 <h3>AI Suggestion</h3>
             </a>
 
+            <a href="/budget" class="action-card">
+
+                <i class="fa-solid fa-piggy-bank"></i>
+
+                <h3>Budget Planner</h3>
+
+            </a>
+
             <a href="/export_csv" class="action-card">
                 <i class="fa-solid fa-file-csv"></i>
                 <h3>Export CSV</h3>
@@ -220,13 +244,7 @@
 
             <h2>AI Insight</h2>
 
-            <p>
-
-                Your savings look healthy this month.
-                Keep tracking your daily expenses
-                for better financial planning.
-
-            </p>
+            <p>{{ insight }}</p>
 
         </div>
 

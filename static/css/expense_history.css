@@ -181,3 +181,54 @@ td i {
     margin-right: 8px;
 
 }
+
+
+.edit-btn{
+
+    display:inline-block;
+
+    background:#3b82f6;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    margin-right:8px;
+
+    transition:.3s;
+
+}
+
+.edit-btn:hover{
+
+    background:#2563eb;
+
+}
+
+.delete-btn{
+
+    display:inline-block;
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+}

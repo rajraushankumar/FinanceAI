@@ -601,17 +601,29 @@ body{
     height:100% !important;
 }
 
-.profile-photo {
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
 
-    width: 42px;
-    height: 42px;
+.profile form{
+    margin:0;
+}
 
-    border-radius: 50%;
+.profile-photo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+    cursor:pointer;
+    border:3px solid #2563eb;
+    transition:0.3s;
+}
 
-    object-fit: cover;
-
-    border: 3px solid white;
-
+.profile-photo:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 15px rgba(37,99,235,0.4);
 }
 
 
@@ -658,5 +670,171 @@ body{
 .chart-card{
 
     height:320px;
+
+}
+
+/* ================= DARK MODE ================= */
+
+.theme-toggle{
+
+    width:45px;
+
+    height:45px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+    margin-left:auto;
+
+    margin-right:20px;
+
+}
+
+.theme-toggle:hover{
+
+    transform:rotate(20deg) scale(1.1);
+
+}
+
+body.dark{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+body.dark .navbar{
+
+    background:#1e293b;
+
+}
+
+body.dark .hero{
+
+    background:#1e293b;
+
+}
+
+body.dark .stat-card,
+
+body.dark .action-card,
+
+body.dark .chart-card,
+
+body.dark .ai-card{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+body.dark .chart-section h2,
+
+body.dark .quick-actions h2,
+
+body.dark .hero h1,
+
+body.dark .hero p{
+
+    color:white;
+
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile form{
+    margin:0;
+}
+
+.profile label{
+    cursor:pointer;
+}
+
+.profile-photo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #2563eb;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.profile-photo:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 15px rgba(37,99,235,.4);
+}
+
+.profile span{
+    font-size:17px;
+    font-weight:600;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-wrap:wrap;
+        justify-content:space-between;
+        gap:15px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .profile span{
+        display:none;
+    }
+
+    .profile-photo{
+        width:45px;
+        height:45px;
+    }
+
+    .theme-toggle{
+        margin:0;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .navbar{
+        padding:15px;
+    }
+
+    .logo span{
+        font-size:18px;
+    }
+
+    .profile-photo{
+        width:40px;
+        height:40px;
+    }
 
 }

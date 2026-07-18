@@ -176,7 +176,7 @@ def profile():
 
         photo = request.files["profile_photo"]
 
-        if photo:
+        if photo and photo.filename != "":
 
             filename = photo.filename
 
@@ -188,10 +188,9 @@ def profile():
             )
 
             cursor.execute(
-                "UPDATE users SET profile_photo=? WHERE id=?",
-                (filename, user[0])
+                "SELECT id, profile_photo FROM users WHERE id=?",
+                (session["user_id"],)
             )
-
             connection.commit()
 
     connection.close()
@@ -262,6 +261,50 @@ def history():
     return render_template(
         "history.html",
         incomes=incomes
+    )
+
+# ---------------- EDIT INCOME ----------------
+@app.route("/edit_income/<int:id>", methods=["GET", "POST"])
+def edit_income(id):
+
+    if "username" not in session:
+        return redirect(url_for("login"))
+
+    connection = sqlite3.connect("finance.db")
+    cursor = connection.cursor()
+
+    if request.method == "POST":
+
+        amount = request.form["amount"]
+        source = request.form["source"]
+        date = request.form["date"]
+
+        cursor.execute(
+            """
+            UPDATE income
+            SET amount=?, source=?, date=?
+            WHERE id=?
+            """,
+            (amount, source, date, id)
+        )
+
+        connection.commit()
+        connection.close()
+
+        return redirect(url_for("history"))
+
+    cursor.execute(
+        "SELECT * FROM income WHERE id=?",
+        (id,)
+    )
+
+    income = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "edit_income.html",
+        income=income
     )
 
 # ---------------- DELETE INCOME ----------------
@@ -364,6 +407,49 @@ def delete_expense(id):
 
     return redirect(url_for("expense_history"))
 
+# ---------------- EDIT EXPENSE ----------------
+@app.route("/edit_expense/<int:id>", methods=["GET", "POST"])
+def edit_expense(id):
+
+    if "username" not in session:
+        return redirect(url_for("login"))
+
+    connection = sqlite3.connect("finance.db")
+    cursor = connection.cursor()
+
+    if request.method == "POST":
+
+        amount = request.form["amount"]
+        category = request.form["category"]
+        date = request.form["date"]
+
+        cursor.execute(
+            """
+            UPDATE expense
+            SET amount=?, category=?, date=?
+            WHERE id=?
+            """,
+            (amount, category, date, id)
+        )
+
+        connection.commit()
+        connection.close()
+
+        return redirect(url_for("expense_history"))
+
+    cursor.execute(
+        "SELECT * FROM expense WHERE id=?",
+        (id,)
+    )
+
+    expense = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "edit_expense.html",
+        expense=expense
+    )
 
 # ---------------- BALANCE ----------------
 @app.route("/balance")
@@ -633,6 +719,102 @@ def export_csv():
     )
 
 
+    # ---------------- BUDGET PLANNER ----------------
+@app.route("/budget", methods=["GET", "POST"])
+def budget():
+
+    if "username" not in session:
+        return redirect(url_for("login"))
+
+    connection = sqlite3.connect("finance.db")
+    cursor = connection.cursor()
+
+    if request.method == "POST":
+
+        monthly_budget = request.form["monthly_budget"]
+
+        cursor.execute(
+            "SELECT * FROM budget WHERE username=?",
+            (session["username"],)
+        )
+
+        data = cursor.fetchone()
+
+        if data:
+
+            cursor.execute(
+                """
+                UPDATE budget
+                SET monthly_budget=?
+                WHERE username=?
+                """,
+                (monthly_budget, session["username"])
+            )
+
+        else:
+
+            cursor.execute(
+                """
+                INSERT INTO budget(username, monthly_budget)
+                VALUES(?,?)
+                """,
+                (session["username"], monthly_budget)
+            )
+
+        connection.commit()
+
+    # Budget
+    cursor.execute(
+        "SELECT monthly_budget FROM budget WHERE username=?",
+        (session["username"],)
+    )
+
+    row = cursor.fetchone()
+
+    budget = row[0] if row else 0
+
+    # Expense
+    cursor.execute(
+        "SELECT SUM(amount) FROM expense WHERE username=?",
+        (session["username"],)
+    )
+
+    expense = cursor.fetchone()[0] or 0
+
+    connection.close()
+
+    remaining = budget - expense
+
+    if budget > 0:
+
+        percent = (expense / budget) * 100
+
+    else:
+
+        percent = 0
+
+    if percent >= 100:
+
+        status = "🔴 Budget Exceeded"
+
+    elif percent >= 80:
+
+        status = "🟠 Budget Almost Finished"
+
+    else:
+
+        status = "🟢 Budget Under Control"
+
+    return render_template(
+        "budget.html",
+        budget=budget,
+        expense=expense,
+        remaining=remaining,
+        percent=round(percent,1),
+        status=status
+    )
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
@@ -681,6 +863,27 @@ def register():
 
     return render_template("register.html")
 
+
+@app.errorhandler(404)
+def page_not_found(error):
+
+    return render_template("404.html"), 404
+
+# ---------------- CREATE BUDGET TABLE ----------------
+
+connection = sqlite3.connect("finance.db")
+cursor = connection.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS budget(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT,
+    monthly_budget REAL
+)
+""")
+
+connection.commit()
+connection.close()
 
 # ---------------- RUN APP ----------------
 if __name__ == "__main__":
