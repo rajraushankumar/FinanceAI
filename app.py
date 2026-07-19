@@ -26,8 +26,8 @@ app.config["UPLOAD_FOLDER"] = "static/images"
 # ---------------- HOME ----------------
 @app.route("/")
 def home():
-    name = "Rajraushan"
-    return render_template("home.html", username=name)
+
+    return redirect(url_for("login"))
 
 
 # ---------------- LOGIN ----------------
