@@ -660,12 +660,12 @@ def ai():
     elif expense > income:
 
         suggestion = (
-            f"🚨 Financial Alert!\n\n"
-            f"You spent ₹{expense:.0f} while your income is only ₹{income:.0f}.\n\n"
-            f"Highest spending: {category} (₹{spent:.0f})\n\n"
-            "Reduce unnecessary expenses immediately."
-        )
-
+                    f"🚨 Financial Alert!\n\n"
+                    f"You spent ₹{expense:.0f} while your income is only ₹{income:.0f}.\n\n"
+                    f"Highest spending: {category} (₹{spent:.0f})\n\n"
+                    "Reduce unnecessary expenses immediately."
+                )
+        
     else:
 
         suggestion = (
