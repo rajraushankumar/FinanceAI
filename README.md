@@ -177,6 +177,6 @@ Python | Flask | HTML | CSS | JavaScript
 
 ---
 
-# ⭐ If you like this project
+# ⭐ Support This Project
 
-Please consider giving this repository a ⭐ on GitHub.
+If you find this project useful or interesting, please consider giving this repository a ⭐ on GitHub. Your support helps the project grow and motivates future improvements.
