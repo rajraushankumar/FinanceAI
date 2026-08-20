@@ -1,9 +1,8 @@
 # 💰 AI Personal Finance Manager
 
-A modern Personal Finance Management Web Application built using **Python, Flask, SQLite, HTML, CSS, and JavaScript**.
+A modern and user-friendly **Personal Finance Management Web Application** built using **Python, Flask, SQLite, HTML, CSS, and JavaScript**.
 
-This application helps users manage their daily finances by tracking income, expenses, savings, monthly budget, and AI-based financial suggestions.
-
+This application helps users efficiently manage their daily finances by tracking **income, expenses, savings, and monthly budgets**, while also providing **AI-powered financial suggestions** for smarter financial decisions.
 ---
 
 # 🚀 Features
