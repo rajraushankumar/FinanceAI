@@ -169,12 +169,15 @@ http://127.0.0.1:5000
 
 # 👨‍💻 Author
 
-**Rajraushan Kumar**
+## Rajraushan Kumar
 
-BCA (Data Science & AI)
+**BCA (Data Science & Artificial Intelligence)**  
+Gopal Narayan Singh University
 
-Python | Flask | HTML | CSS | JavaScript
+### 🛠️ Tech Stack
+**Python | Flask | HTML | CSS | JavaScript**
 
+Passionate about building practical projects in **Data Science, AI, and Web Development**.
 ---
 
 # ⭐ Support This Project
